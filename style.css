@@ -95,6 +95,38 @@ header nav a:hover {
     background-color: #f5f5f5;
 }
 
+h1 {
+    color: #4b0082;
+    margin-bottom: 20px;
+}
+
+.verse, .cells, .participate, .events {
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.verse h2, .cells h2, .participate h2, .events h2 {
+    color: #6a0dad;
+    margin-bottom: 10px;
+}
+
+.events ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.events ul li {
+    background-color: #f0e6ff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
 .footer {
     background-color: #6a0dad;
     padding: 10px;
@@ -146,4 +178,4 @@ header nav a:hover {
         opacity: 0;
         transform: translateY(-20px);
     }
-  }
+}
