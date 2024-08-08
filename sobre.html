@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UmaFB Brasil | Sobre</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo">
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./sobre.html">Sobre</a>
+            <a id="entrar" href="#">Entrar</a>
+        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+    <div class="content">
+        <h1>Sobre o UmaFB Brasil</h1>
+        
+        <div class="history">
+            <p>O UmaFB Brasil foi criado em 24 de agosto de 2022, com o objetivo de formar uma comunidade cristã online onde jovens possam se reunir para estudar a Bíblia, compartilhar experiências de vida, e crescer espiritualmente juntos. A ideia surgiu quando um grupo de amigos percebeu a necessidade de um espaço dedicado à fé, acessível a todos, independentemente da localização.</p>
+
+            <p>Desde sua criação, o UmaFB Brasil tem crescido em número de membros e atividades. Hoje, o servidor é um lugar vibrante onde ocorrem reuniões semanais em células, estudos bíblicos, momentos de oração e eventos especiais. Cada célula é um grupo pequeno e acolhedor, focado em fortalecer a fé dos participantes através da leitura da Bíblia, oração e apoio mútuo.</p>
+
+            <p>Nossa missão é criar um ambiente seguro e acolhedor onde todos possam explorar e fortalecer sua fé em Cristo. Acreditamos que, através da comunhão e da partilha de experiências, podemos nos aproximar de Deus e uns dos outros, criando laços que transcendem as barreiras físicas.</p>
+        </div>
+    </div>
+    <div class="footer">
+        UmaFB Brasil © Todos os direitos reservados.
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Redirecionamento ao clicar em "Entrar"
+        document.getElementById('entrar').addEventListener('click', function() {
+            window.location.href = 'https://discord.gg/2z53NR5ys9';
+        });
+    </script>
+</body>
+</html>
