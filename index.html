@@ -47,9 +47,9 @@
         <div class="events">
             <h2>Próximos Eventos</h2>
             <ul>
-                <li id="evento1" class="evento">Giro Bíblico - Terça-feira às 19:10</li>
-                <li id="evento2" class="evento">Célula - Quarta-feira às 18:30</li>
-                <li id="evento3" class="evento">Giro Bíblico - Sexta-feira às 19:20</li>
+                <li>Giro Bíblico - Terça-feira às 19:10</li>
+                <li>Célula - Quarta-feira às 18:30</li>
+                <li>Giro Bíblico - Sexta-feira às 19:20</li>
             </ul>
         </div>
     </div>
@@ -62,35 +62,6 @@
         document.getElementById('entrar').addEventListener('click', function() {
             window.location.href = 'https://discord.gg/2z53NR5ys9';
         });
-
-        // Verificação de eventos ao vivo
-        function checkLiveEvents() {
-            const eventos = [
-                { id: 'evento1', dia: 2, hora: '19:10' }, // Terça-feira
-                { id: 'evento2', dia: 3, hora: '18:30' }, // Quarta-feira
-                { id: 'evento3', dia: 5, hora: '19:20' }  // Sexta-feira
-            ];
-
-            const now = new Date();
-            const diaAtual = now.getDay(); // 0 = Domingo, 1 = Segunda-feira, etc.
-            const horaAtual = now.toTimeString().substr(0, 5);
-
-            eventos.forEach(evento => {
-                if (evento.dia === diaAtual && evento.hora === horaAtual) {
-                    const elemento = document.getElementById(evento.id);
-                    elemento.classList.add('ativo');
-                }
-            });
-        }
-
-        // Chama a função para verificar eventos ao vivo
-        checkLiveEvents();
-
-        // Função para alternar menu (para dispositivos móveis)
-        function toggleMenu() {
-            const menu = document.querySelector('nav');
-            menu.classList.toggle('menu-active');
-        }
     </script>
 </body>
 </html>
