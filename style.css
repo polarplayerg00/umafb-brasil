@@ -179,7 +179,3 @@ h1 {
         transform: translateY(-20px);
     }
 }
-.current-event {
-    background-color: #d0f0c0; /* Verde pastel */
-    border: 2px solid #a0d3a1; /* Cor mais escura para destaque */
-}
