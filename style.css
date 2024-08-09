@@ -9,13 +9,19 @@ body {
 }
 
 header {
-    background-color: #4CAF50;
+    background-color: #8A2BE2; /* Roxo */
     padding: 10px 0;
     text-align: center;
 }
 
 header img {
     width: 150px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 nav a {
@@ -26,11 +32,11 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #45a049;
+    background-color: #7A1D9A; /* Roxo escuro */
 }
 
 .menu-icon {
-    display: none;
+    display: none; /* Mantido oculto para desktop */
 }
 
 .content {
@@ -38,7 +44,7 @@ nav a:hover {
 }
 
 h1, h2 {
-    color: #4CAF50;
+    color: #8A2BE2; /* Roxo */
 }
 
 .verse, .cells, .participate, .events {
@@ -50,7 +56,7 @@ h1, h2 {
 }
 
 .footer {
-    background-color: #4CAF50;
+    background-color: #8A2BE2; /* Roxo */
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -63,7 +69,7 @@ h1, h2 {
 .evento.ativo {
     color: white;
     font-weight: bold;
-    background-color: red;
+    background-color: #FF4500; /* Vermelho */
     padding: 5px;
     border-radius: 5px;
 }
