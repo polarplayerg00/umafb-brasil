@@ -18,6 +18,12 @@ header img {
     width: 150px;
 }
 
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
 nav a {
     color: white;
     padding: 14px 20px;
@@ -30,7 +36,14 @@ nav a:hover {
 }
 
 .menu-icon {
-    display: none;
+    display: none; /* Mantido oculto para desktop */
+}
+
+.menu-active {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #8A2BE2; /* Roxo */
 }
 
 .content {
