@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
 document.addEventListener('DOMContentLoaded', function() {
     const events = [
         { name: "Giro Bíblico", day: "Terça-feira", time: "19:10" },
@@ -55,22 +54,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const daysOfWeek = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
 
-    // Define manualmente o dia e a hora para teste
-    const currentDay = "Terça-feira"; // Ajuste para testar
-    const currentTime = "19:10"; // Ajuste para testar
+    // Define o offset do Horário de Brasília (UTC-3)
+    const brasiliaOffset = -3;
+    
+    // Obtém a hora atual UTC e ajusta para o Horário de Brasília
+    const now = new Date();
+    const brasiliaTime = new Date(now.getTime() + (brasiliaOffset * 60 * 60 * 1000));
+
+    // Obtém o dia da semana e a hora atuais em Brasília
+    const currentDay = daysOfWeek[brasiliaTime.getDay()];
+    const currentTime = brasiliaTime.toTimeString().slice(0, 5); // Formata para "HH:MM"
 
     const eventList = document.querySelector('.events ul');
     const eventItems = eventList.querySelectorAll('li');
 
+    // Remove a classe 'current-event' de todos os itens
     eventItems.forEach(item => item.classList.remove('current-event'));
 
+    // Aplica a classe 'current-event' apenas ao item que corresponde ao dia e hora atuais
     events.forEach(event => {
         if (event.day === currentDay && event.time === currentTime) {
-            eventList.querySelectorAll('li').forEach(li => {
+            eventItems.forEach(li => {
                 if (li.textContent.includes(event.name)) {
                     li.classList.add('current-event');
                 }
             });
         }
     });
+
+    // Logs para debug
+    console.log("Hora em Brasília: ", brasiliaTime.toLocaleString());
+    console.log("Dia Atual: ", currentDay);
+    console.log("Hora Atual: ", currentTime);
 });
