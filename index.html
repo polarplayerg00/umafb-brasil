@@ -47,15 +47,9 @@
         <div class="events">
             <h2>Próximos Eventos</h2>
             <ul>
-                <li class="evento" data-dia="2024-08-13" data-horario-inicio="19:10" data-horario-fim="20:10">
-                    Giro Bíblico - Terça-feira às 19:10
-                </li>
-                <li class="evento" data-dia="2024-08-14" data-horario-inicio="18:30" data-horario-fim="19:30">
-                    Célula - Quarta-feira às 18:30
-                </li>
-                <li class="evento" data-dia="2024-08-16" data-horario-inicio="19:20" data-horario-fim="20:20">
-                    Giro Bíblico - Sexta-feira às 19:20
-                </li>
+                <li id="evento1" class="evento">Giro Bíblico - Terça-feira às 19:10</li>
+                <li id="evento2" class="evento">Célula - Quarta-feira às 18:30</li>
+                <li id="evento3" class="evento">Giro Bíblico - Sexta-feira às 19:20</li>
             </ul>
         </div>
     </div>
@@ -69,31 +63,28 @@
             window.location.href = 'https://discord.gg/2z53NR5ys9';
         });
 
-        // Função para verificar se algum evento está ativo (ao vivo)
-        function verificarEventosAtivos() {
-            const eventos = document.querySelectorAll('.evento');
-            const agora = new Date();
-            const diaAtual = agora.toISOString().split('T')[0];
-            const horarioAtual = agora.toTimeString().split(' ')[0].slice(0, 5);
+        // Verificação de eventos ao vivo
+        function checkLiveEvents() {
+            const eventos = [
+                { id: 'evento1', dia: 2, hora: '19:10' }, // Terça-feira
+                { id: 'evento2', dia: 3, hora: '18:30' }, // Quarta-feira
+                { id: 'evento3', dia: 5, hora: '19:20' }  // Sexta-feira
+            ];
+
+            const now = new Date();
+            const diaAtual = now.getDay(); // 0 = Domingo, 1 = Segunda-feira, etc.
+            const horaAtual = now.toTimeString().substr(0, 5);
 
             eventos.forEach(evento => {
-                const diaEvento = evento.getAttribute('data-dia');
-                const horarioInicio = evento.getAttribute('data-horario-inicio');
-                const horarioFim = evento.getAttribute('data-horario-fim');
-
-                if (diaEvento === diaAtual && horarioAtual >= horarioInicio && horarioAtual <= horarioFim) {
-                    evento.classList.add('ativo');
-                } else {
-                    evento.classList.remove('ativo');
+                if (evento.dia === diaAtual && evento.hora === horaAtual) {
+                    const elemento = document.getElementById(evento.id);
+                    elemento.classList.add('ativo');
                 }
             });
         }
 
-        // Verifica ao carregar a página
-        document.addEventListener('DOMContentLoaded', verificarEventosAtivos);
-
-        // Verifica a cada minuto (60000 milissegundos)
-        setInterval(verificarEventosAtivos, 60000);
+        // Chama a função para verificar eventos ao vivo
+        checkLiveEvents();
     </script>
 </body>
 </html>
