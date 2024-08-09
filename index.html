@@ -47,9 +47,15 @@
         <div class="events">
             <h2>Próximos Eventos</h2>
             <ul>
-                <li>Giro Bíblico - Terça-feira às 19:10</li>
-                <li>Célula - Quarta-feira às 18:30</li>
-                <li>Giro Bíblico - Sexta-feira às 19:20</li>
+                <li class="evento" data-dia="2024-08-13" data-horario-inicio="19:10" data-horario-fim="20:10">
+                    Giro Bíblico - Terça-feira às 19:10
+                </li>
+                <li class="evento" data-dia="2024-08-14" data-horario-inicio="18:30" data-horario-fim="19:30">
+                    Célula - Quarta-feira às 18:30
+                </li>
+                <li class="evento" data-dia="2024-08-16" data-horario-inicio="19:20" data-horario-fim="20:20">
+                    Giro Bíblico - Sexta-feira às 19:20
+                </li>
             </ul>
         </div>
     </div>
@@ -62,6 +68,32 @@
         document.getElementById('entrar').addEventListener('click', function() {
             window.location.href = 'https://discord.gg/2z53NR5ys9';
         });
+
+        // Função para verificar se algum evento está ativo (ao vivo)
+        function verificarEventosAtivos() {
+            const eventos = document.querySelectorAll('.evento');
+            const agora = new Date();
+            const diaAtual = agora.toISOString().split('T')[0];
+            const horarioAtual = agora.toTimeString().split(' ')[0].slice(0, 5);
+
+            eventos.forEach(evento => {
+                const diaEvento = evento.getAttribute('data-dia');
+                const horarioInicio = evento.getAttribute('data-horario-inicio');
+                const horarioFim = evento.getAttribute('data-horario-fim');
+
+                if (diaEvento === diaAtual && horarioAtual >= horarioInicio && horarioAtual <= horarioFim) {
+                    evento.classList.add('ativo');
+                } else {
+                    evento.classList.remove('ativo');
+                }
+            });
+        }
+
+        // Verifica ao carregar a página
+        document.addEventListener('DOMContentLoaded', verificarEventosAtivos);
+
+        // Verifica a cada minuto (60000 milissegundos)
+        setInterval(verificarEventosAtivos, 60000);
     </script>
 </body>
 </html>
