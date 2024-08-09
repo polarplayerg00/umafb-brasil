@@ -39,13 +39,6 @@ nav a:hover {
     display: none; /* Mantido oculto para desktop */
 }
 
-.menu-active {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: #8A2BE2; /* Roxo */
-}
-
 .content {
     padding: 20px;
 }
@@ -70,19 +63,4 @@ h1, h2 {
     position: fixed;
     width: 100%;
     bottom: 0;
-}
-
-/* Estilo para eventos ao vivo */
-.evento.ativo {
-    color: white;
-    font-weight: bold;
-    background-color: #FF4500; /* Vermelho */
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.evento.ativo::after {
-    content: " - AO VIVO!";
-    color: yellow;
-    font-weight: bold;
 }
